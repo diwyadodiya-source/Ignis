@@ -6,8 +6,8 @@
 <meta name="description" content="Ignis: the football drill mat app. Precision with Passion.">
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="mobile-web-app-capable" content="yes">
-<link rel="icon" href="assets/icon.png">
-<link rel="apple-touch-icon" href="assets/icon.png">
+<link rel="icon" href="icon.png">
+<link rel="apple-touch-icon" href="icon.png">
 <link rel="manifest" href="manifest.webmanifest">
 <title>Ignis</title>
 <meta name="theme-color" content="#0e1943">
@@ -508,11 +508,11 @@ const DRILLS=[
 ];
 const D=id=>DRILLS.find(d=>d.id===id)||DRILLS[0];
 const GOALS={
- reflex:{key:'reflex',title:'Improve Reflexes',text:'I want to get better at instinctive reflexes.',img:'assets/goal-reflex.png',focus:'reflexes',
+ reflex:{key:'reflex',title:'Improve Reflexes',text:'I want to get better at instinctive reflexes.',img:'goal-reflex.png',focus:'reflexes',
    notice:'Faster reaction to visual cues and quicker first steps when the game changes direction.',drills:['roll-stop','v-cuts','outside-cuts','inside-cuts','ball-shift']},
- endurance:{key:'endurance',title:'Improve Endurance',text:'I want to practice the ability to sustain physical effort over a prolonged period.',img:'assets/goal-endurance.png',focus:'endurance',
+ endurance:{key:'endurance',title:'Improve Endurance',text:'I want to practice the ability to sustain physical effort over a prolonged period.',img:'goal-endurance.png',focus:'endurance',
    notice:'Gradual growth in the state of optimized ability to reason, remember, learn, plan, and adapt.',drills:['outside-cuts','inside-cuts','sole-taps','v-drag-back','v-cuts']},
- control:{key:'control',title:'Improve Ball Control',text:'I want to get better at handling the ball and dribbling.',img:'assets/goal-control.png',focus:'ball control',
+ control:{key:'control',title:'Improve Ball Control',text:'I want to get better at handling the ball and dribbling.',img:'goal-control.png',focus:'ball control',
    notice:'Softer first touches, closer dribbling and calmer control when you are under pressure.',drills:['single-foot','sole-drag','push-pull','v-turns','dribbling']}
 };
 
@@ -537,9 +537,9 @@ function fresh(){
    goal:'endurance',mat:{connected:false,mode:null,name:''},plan,done:{},reps:{},favorite:false,favDrills:['outside-cuts','sole-taps'],
    schedule:'09:00',difficulty:'Beginner',history:seedHistory(),popup:true,
    today:['dribbling','v-cuts','single-foot','sole-taps','outside-cuts'],todayOn:['dribbling'],
-   notif:[{id:1,t:'Hey, it’s time to practice!',s:'About 1 minutes ago',img:'assets/av-n1.png',read:false},
-          {id:2,t:'Don’t miss your dribbling practice',s:'About 3 hours ago',img:'assets/av-n2.png',read:false},
-          {id:3,t:'Congratulations, you have completed your drill',s:'Yesterday',img:'assets/av-n3.png',read:true},
+   notif:[{id:1,t:'Hey, it’s time to practice!',s:'About 1 minutes ago',img:'av-n1.png',read:false},
+          {id:2,t:'Don’t miss your dribbling practice',s:'About 3 hours ago',img:'av-n2.png',read:false},
+          {id:3,t:'Congratulations, you have completed your drill',s:'Yesterday',img:'av-n3.png',read:true},
           {id:4,t:'You’re two drills away from your goal',s:'28th dec',img:'',read:true}],
    rooms:[{name:'Room 1',tag:'college',members:'Adwita, Ansha, Aqsa, Rhea'},{name:'Room 2',tag:'Family',members:'Mom, Dad, Harliv'},{name:'Room 3',tag:'Football Team',members:'Amey, Ansha, Mithali, Kabir, Dev'}]};
 }
@@ -631,10 +631,10 @@ AFTER.welcome=el=>{timers.push(setTimeout(()=>{const w=el.querySelector('#wl');w
 ACTS.start=()=>go('onboard',{i:0});
 
 const OB=[
- {img:'assets/ob1.png',t:'Daily Drills',p:"Don't worry if you have trouble determining your goals, We can help you determine your goals and track your goals"},
- {img:'assets/ob2.png',t:'Choose your drill',p:'Let’s keep burning, to achive yours goals, it hurts only temporarily, if you give up now you will be in pain forever'},
- {img:'assets/ob3.png',t:'Drill Analysis',p:"Let's start a healthy lifestyle with us, we can determine your diet every day. healthy eating is fun"},
- {img:'assets/ob4.png',t:'Improve football on field',p:'Improve the quality of your sleep with us, good quality sleep can bring a good mood in the morning'}
+ {img:'ob1.png',t:'Daily Drills',p:"Don't worry if you have trouble determining your goals, We can help you determine your goals and track your goals"},
+ {img:'ob2.png',t:'Choose your drill',p:'Let’s keep burning, to achive yours goals, it hurts only temporarily, if you give up now you will be in pain forever'},
+ {img:'ob3.png',t:'Drill Analysis',p:"Let's start a healthy lifestyle with us, we can determine your diet every day. healthy eating is fun"},
+ {img:'ob4.png',t:'Improve football on field',p:'Improve the quality of your sleep with us, good quality sleep can bring a good mood in the morning'}
 ];
 SCREENS.onboard=({i=0})=>{const o=OB[i];const c=2*Math.PI*33;const f=c*(i+1)/4;
  return `<div class="ob" id="ob"><img class="hero" src="${o.img}" alt=""><div class="txt"><h2>${o.t}</h2><p>${o.p}</p></div></div>
@@ -691,7 +691,7 @@ AFTER.login=el=>el.querySelector('#logf').addEventListener('submit',e=>{e.preven
 ACTS.forgot=()=>toast('A reset link would be emailed to you. Email is not connected in this preview.');
 
 SCREENS.profileSetup=()=>{const u=S.user;return `<form class="flexcol" id="psf" novalidate>
- <img class="illus" src="assets/reg-girl.png" alt="" style="margin-top:36px;width:290px">
+ <img class="illus" src="reg-girl.png" alt="" style="margin-top:36px;width:290px">
  <div class="pad" style="text-align:center;margin-top:20px"><h1 class="h-title">Let’s complete your profile</h1><p class="muted" style="margin:5px 0 0">It will help us to know more about you!</p></div>
  <div class="pad" style="display:grid;gap:15px;margin-top:30px">
   <label class="field">${ic('gender',18)}<select id="p-gender" aria-label="Choose Gender">${['Choose Gender','Female','Male','Other'].map(g=>`<option ${g===u.gender?'selected':''} ${g==='Choose Gender'?'value=""':''}>${g}</option>`).join('')}</select>${ic('down',18)}</label>
@@ -719,11 +719,11 @@ ACTS.gselect=()=>{S.goal=GK[cur.params.i||0];S.plan[TODAY]=GOALS[S.goal].drills.
 
 SCREENS.cognitive=()=>{const g=GOALS[S.goal];return `<div class="flexcol blue-bg">
  <div class="pad" style="text-align:center;padding-top:40px"><h1 class="h-title" style="color:#fff">COGNITIVE RESPONSE</h1><p style="font-size:12px;margin:12px auto 0;max-width:180px;line-height:1.55">In return you will notice an improvement in your cognitive fitness</p></div>
- <div class="goal-wrap" style="height:478px;margin-top:20px"><div class="goal-card light"><img src="assets/cognitive.png" alt=""><h3>What You will Notice</h3><hr><p>${g.notice}</p></div></div>
+ <div class="goal-wrap" style="height:478px;margin-top:20px"><div class="goal-card light"><img src="cognitive.png" alt=""><h3>What You will Notice</h3><hr><p>${g.notice}</p></div></div>
  <div class="cta" style="background:none"><button class="btn" data-act="goalsDone">Select Goals</button><button style="width:100%;margin-top:12px;color:#fff;font-size:12px;opacity:.75" data-back>Change goal</button></div></div>`};
 ACTS.goalsDone=()=>go('success');
 
-SCREENS.success=()=>`<div class="flexcol"><img class="illus" src="assets/success.png" alt="" style="width:315px;margin-top:70px">
+SCREENS.success=()=>`<div class="flexcol"><img class="illus" src="success.png" alt="" style="width:315px;margin-top:70px">
  <div class="pad" style="text-align:center;margin-top:30px"><h1 class="h-title">Welcome, ${esc(S.user.first||'Player')}</h1><p class="muted" style="max-width:220px;margin:5px auto 0">You are all set now, let’s reach your goals together</p></div>
  <div class="cta"><button class="btn" style="background:#132158" data-act="toHome">Go To Home</button></div></div>`;
 ACTS.toHome=()=>{S.stage='app';go('home',{},{reset:true})};
@@ -754,7 +754,7 @@ SCREENS.home=()=>{const b=bmi();const unread=S.notif.some(n=>!n.read);const list
  <div class="sec-head"><h2 class="h-sec">Drill Progress</h2><button class="drop" data-act="weekly">Weekly ${ic('down',14,1.8)}</button></div>
  <div class="prog" id="prog"></div>
  <div class="sec-head"><h2 class="h-sec">Latest Drills</h2><button style="font-size:12px;color:#7f8ad1" data-go="tracker">See more</button></div>
- ${latest.map((h,k)=>{const d=new Date(h.date+'T12:00');const imgs=['assets/av-n1.png','assets/av-n2.png','assets/av-n3.png'];
+ ${latest.map((h,k)=>{const d=new Date(h.date+'T12:00');const imgs=['av-n1.png','av-n2.png','av-n3.png'];
    return `<button class="drill-row" data-go="history" data-p='${JSON.stringify({date:h.date})}'><span class="av"><img src="${imgs[k%3]}" alt=""></span><span class="meta"><b>${WD[d.getDay()].replace('Tue','Tues').replace('Wed','Wednes').replace('Thu','Thurs').replace('Sat','Satur')}day drill</b><small>${h.kcal} Calories Burn | ${h.minutes} minutes</small><span class="pbar"><i style="width:${Math.min(100,h.minutes/40*100)}%"></i></span></span><span class="circ on">${ic('check',14,2)}</span></button>`}).join('')}
  </div>`};
 function wedge(cx,cy,r,a0,a1){const p=a=>[cx+r*Math.cos(a*Math.PI/180),cy+r*Math.sin(a*Math.PI/180)];const [x0,y0]=p(a0),[x1,y1]=p(a1);return `M${cx} ${cy} L${x0} ${y0} A${r} ${r} 0 ${a1-a0>180?1:0} 1 ${x1} ${y1} Z`}
@@ -800,7 +800,7 @@ ACTS.bmiMore=()=>{const b=bmi();openSheet(`<h3>Your BMI is ${b.toFixed(1)}</h3><
 /* ---------- mat connection ---------- */
 ACTS.mat=()=>{const on=S.mat.connected;openSheet(`<h3>${on?'Your Ignis mat':'Connect your Ignis mat'}</h3>
  <p class="muted">${on?'The mat is ready. It lights each cue and reads every touch during a workout.':'Switch the mat on and hold the power button for 3 seconds until the infinity loop pulses blue.'}</p>
- <img class="mat-hero" src="assets/mat-top.jpg" alt="The Ignis mat lit up">
+ <img class="mat-hero" src="mat-top.jpg" alt="The Ignis mat lit up">
  <div class="status ${on?'on':''}" id="mstat"><i></i><span>${on?esc(S.mat.name)+' · '+(S.mat.mode==='demo'?'demo mode':'Bluetooth'):'Not connected'}</span></div>
  <div class="stack">${on?`<button class="btn" data-act="matTest">Test the lights</button><button class="opt-row" data-act="matOff"><span>Disconnect</span>${ic('x',16)}</button>`:
  `<button class="btn" data-act="matBT">${ic('bt',20,1.8)} Search for mat</button><button class="opt-row" data-act="matDemo"><span>Use the demo mat</span>${ic('right',16)}</button>`}</div>`)};
@@ -835,7 +835,7 @@ SCREENS.tracker=()=>{const days=last7();const max=Math.max(40,...days.map(d=>d.m
  const fav=S.favDrills.map(D);
  return `<div style="padding-bottom:120px">${top('Activity Tracker')}
  <div class="tt"><div class="tt-head"><b>Todays Target</b><button class="sq" data-go="workout" data-p='{"date":"${TODAY}"}' aria-label="Start today’s workout">${ic('playO',14,1.8)}</button></div>
-  <div class="tt-grid"><div><img src="assets/ic-cup.png" alt=""><span><b>Focus</b><small>${g.focus}</small></span></div><div><img src="assets/ic-boots.png" alt=""><span><b>Drills</b><small>${planFor(TODAY).length}</small></span></div></div></div>
+  <div class="tt-grid"><div><img src="ic-cup.png" alt=""><span><b>Focus</b><small>${g.focus}</small></span></div><div><img src="ic-boots.png" alt=""><span><b>Drills</b><small>${planFor(TODAY).length}</small></span></div></div></div>
  <div class="sec-head"><h2 class="h-sec">Activity Progress</h2><button class="drop" data-act="weekly">Weekly ${ic('down',14,1.8)}</button></div>
  <div class="card bars">${days.map((d,k)=>`<div class="col ${k===6?'today':''}" title="${d.minutes} minutes"><div class="track"><i style="height:${Math.max(d.minutes?14:0,Math.round(d.minutes/max*100))}%"></i></div><span>${WD[d.d.getDay()]}</span></div>`).join('')}</div>
  ${S.history.some(h=>h.example)?'<p class="example">Earlier days show example sessions until you train.</p>':''}
@@ -846,7 +846,7 @@ SCREENS.tracker=()=>{const days=last7();const max=Math.max(40,...days.map(d=>d.m
 /* ---------- today target ---------- */
 SCREENS.todayTarget=()=>`<div class="flexcol">${top('Todays Target')}
  <div class="pad" style="margin-top:30px"><h2 class="h-sec" style="color:var(--title)">Drills</h2><p class="muted" style="margin:2px 0 0">Tap a card to add it to today. Selected drills stay sharp.</p></div>
- <div class="dgrid">${S.today.map(id=>`<button class="dcard ${S.todayOn.includes(id)?'on':'off'}" data-act="tToggle" data-id="${id}" aria-pressed="${S.todayOn.includes(id)}"><b>${esc(D(id).name)}</b><img src="assets/drill-art.png" alt=""></button>`).join('')}
+ <div class="dgrid">${S.today.map(id=>`<button class="dcard ${S.todayOn.includes(id)?'on':'off'}" data-act="tToggle" data-id="${id}" aria-pressed="${S.todayOn.includes(id)}"><b>${esc(D(id).name)}</b><img src="drill-art.png" alt=""></button>`).join('')}
   <button class="addfab" data-act="tAdd" aria-label="Add a drill">${ic('plus',26,2.6)}</button></div>
  <div class="cta"><button class="btn grad-r" data-act="tDone">Done</button></div></div>`;
 ACTS.tToggle=a=>{const id=a.dataset.id;const on=S.todayOn.includes(id);S.todayOn=on?S.todayOn.filter(x=>x!==id):S.todayOn.concat(id);a.classList.toggle('on',!on);a.classList.toggle('off',on);a.setAttribute('aria-pressed',!on);save()};
@@ -868,7 +868,7 @@ ACTS.roomLeave=a=>{S.rooms.splice(+a.dataset.k,1);closeSheet(true);rerender();to
 
 /* ---------- profile ---------- */
 SCREENS.profile=()=>{const g=GOALS[S.goal];return `<div style="padding-bottom:120px">${top('Profile')}
- <div class="pf"><span class="av"><img src="assets/av-profile.png" alt=""></span><div class="meta"><b>${esc(fullName())}</b><small>${g.focus[0].toUpperCase()+g.focus.slice(1)} focused</small></div><button class="btn small" data-act="editProfile" style="height:32px;font-size:12px;font-weight:400">Edit</button></div>
+ <div class="pf"><span class="av"><img src="av-profile.png" alt=""></span><div class="meta"><b>${esc(fullName())}</b><small>${g.focus[0].toUpperCase()+g.focus.slice(1)} focused</small></div><button class="btn small" data-act="editProfile" style="height:32px;font-size:12px;font-weight:400">Edit</button></div>
  <div class="stats"><div><b>${S.user.height}${S.user.hUnit}</b><small>Height</small></div><div><b>${S.user.weight}${S.user.wUnit}</b><small>Weight</small></div><div><b>${age()} y/o</b><small>Age</small></div></div>
  <div class="pcard"><h3>Account</h3>
   ${[['user','Personal Data','editProfile'],['doc','Achievement','achieve'],['pie','Activity History','toTracker'],['chart','Progress Chart','toTracker']].map(r=>`<button class="prow" data-act="${r[2]}">${ic(r[0],18)}<span>${r[1]}</span>${ic('right',16)}</button>`).join('')}</div>
@@ -925,7 +925,7 @@ ACTS.pSave=()=>{const date=cur.params.date||TODAY;const l=planFor(date);if(!l.le
 
 /* ---------- workout plan ---------- */
 SCREENS.workout=({date=TODAY})=>{const d=new Date(date+'T12:00');const l=planFor(date);const sets=[];for(let k=0;k<l.length;k+=5)sets.push(l.slice(k,k+5));
- return `<div class="flexcol"><div class="wk-hero"><span class="circle"></span><img src="assets/goal-reflex.png" alt="">
+ return `<div class="flexcol"><div class="wk-hero"><span class="circle"></span><img src="goal-reflex.png" alt="">
   <button class="navbtn" style="left:30px" data-back aria-label="Back">${ic('left',16,1.8)}</button><button class="navbtn" style="right:30px" data-act="more" aria-label="More">${ic('two',18)}</button></div>
  <div class="wk-sheet"><div class="handle"></div><div class="pad">
   <div class="wk-title"><div><b>${WDL[d.getDay()]}</b><small>${l.length} Exercises | ${minutesFor(l)}mins</small></div><button class="hearter ${S.favorite?'on':''}" data-act="fav" aria-pressed="${S.favorite}" aria-label="Favorite this plan">${ic('heart',16)}</button></div>
@@ -947,7 +947,7 @@ ACTS.tapStart=()=>{closeSheet(true);go('live',{date:cur.params.date||TODAY,i:0})
 
 /* ---------- drill detail ---------- */
 SCREENS.drill=({id})=>{const d=D(id);const reps=S.reps[id]||30;return `<div class="flexcol">${top('',{close:true,two:true})}
- <div class="video" id="vid" style="margin-top:0"><img src="assets/video.png" alt="">${matSVG('vmat',true)}<button class="vbtn" data-act="vplay" aria-label="Play the mat pattern"><span style="width:28px;height:28px;border-radius:50%;background:#fff;display:grid;place-items:center;color:#1d2b63">${ic('play',14)}</span></button></div>
+ <div class="video" id="vid" style="margin-top:0"><img src="video.png" alt="">${matSVG('vmat',true)}<button class="vbtn" data-act="vplay" aria-label="Play the mat pattern"><span style="width:28px;height:28px;border-radius:50%;background:#fff;display:grid;place-items:center;color:#1d2b63">${ic('play',14)}</span></button></div>
  <div class="pad" style="margin-top:50px"><h1 class="h-sec">${esc(d.name)}</h1><small class="muted">${d.level}</small>
   <h2 class="h-sec" style="margin-top:30px">Descriptions</h2><p style="font-size:12px;line-height:1.5;margin:15px 0 0;font-weight:500">${esc(d.desc)}</p>
   <div style="display:flex;justify-content:space-between;align-items:center;margin-top:12px"><h2 class="h-sec">How To Do It</h2><small class="muted">${d.steps.length} Steps</small></div>
@@ -1003,11 +1003,11 @@ AFTER.live=(el,{date,i})=>{const l=planFor(date);const d=D(l[i]);
 function markDone(date,id){S.done[date]=S.done[date]||[];if(!S.done[date].includes(id))S.done[date].push(id)}
 function finish(){const m=Math.max(1,Math.round(LIVE.secs/60));const avg=LIVE.react.length?Math.round(LIVE.react.reduce((a,b)=>a+b,0)/LIVE.react.length):0;
   S.history.push({date:LIVE.date,minutes:m,drills:LIVE.drills,kcal:Math.round(m*8+LIVE.touches*0.4),reaction:avg,touches:LIVE.touches});
-  S.notif.unshift({id:Date.now(),t:'Congratulations, you have completed your drill',s:'Just now',img:'assets/av-n3.png',read:false});
+  S.notif.unshift({id:Date.now(),t:'Congratulations, you have completed your drill',s:'Just now',img:'av-n3.png',read:false});
   const res={...LIVE,avg,m};LIVE=null;save();go('congrats',res,{reset:true})}
 
 SCREENS.congrats=(r)=>`<div class="flexcol"><div class="top" style="justify-content:flex-start"><button class="navbtn" data-go="home" aria-label="Back to home">${ic('left',16,1.8)}</button></div>
- <img class="illus" src="assets/congrats.png" alt="" style="width:313px;margin-top:4px">
+ <img class="illus" src="congrats.png" alt="" style="width:313px;margin-top:4px">
  <div class="pad" style="text-align:center;margin-top:22px"><h1 class="h-title" style="color:var(--title);line-height:1.5">Congratulations, You Have Completed All Your Drills</h1>
  ${r&&r.drills?`<div class="stats" style="margin:16px 0 0"><div><b>${r.drills}</b><small>drills</small></div><div><b>${r.touches}</b><small>touches</small></div><div><b>${r.avg?r.avg+'ms':'–'}</b><small>reaction</small></div></div>`:''}
  <p class="muted" style="margin:18px auto 0;max-width:270px">“Every day is an opportunity disguised as a challenge.”<br>Tiki Barber</p></div>
